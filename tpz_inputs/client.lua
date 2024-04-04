@@ -28,15 +28,21 @@ function GetInput(data, hasTextInput, returnClickedValue, returnSelectedOptionVa
 
     ToggleUI(true)
 
-    SendNUIMessage({ action = "open", inputData = data, hasTextInput =  hasTextInput, returnClickedValue = returnClickedValue, returnSelectedOptionValue = returnSelectedOptionValue})
+    SendNUIMessage({ 
+        action                    = "open", 
+        inputData                 = data, 
+        hasTextInput              = hasTextInput, 
+        returnClickedValue        = returnClickedValue, 
+        returnSelectedOptionValue = returnSelectedOptionValue
+    })
 
     while not input do 
-        Citizen.Wait(0) 
+        Citizen.Wait(50) 
     end
+    
+    Citizen.Wait(10)
 
     cb(input)
-
-    Citizen.Wait(10)
 
     input = nil
     SendNUIMessage({ action = 'close'})
@@ -65,5 +71,6 @@ end)
 -----------------------------------------------------------
 
 RegisterCommand("toggleofftpinputs",function()
+    input = nil
     ToggleUI(false)
 end)
