@@ -15,7 +15,7 @@ body {
 
 }
 
-#tpz_inputs{
+#tp_inputs{
   display: inline-block;
   margin-left: auto;
   margin-right: auto;
@@ -66,6 +66,8 @@ body {
 	margin-top: 3.0vw;
 
   font-weight: lighter;
+
+  white-space: pre-wrap;
 }
 
 #text_input {
@@ -77,11 +79,11 @@ body {
 	font-size: 0.7vw;
   text-align: center;
 
-  width: 8vw;
+  width: 5vw;
   height: 1vw;
 
   margin-top: 7vw;
-  margin-left: 8.8vw;
+  margin-left: 10.3vw;
 
   background-color: rgb(216, 213, 213);
 }
