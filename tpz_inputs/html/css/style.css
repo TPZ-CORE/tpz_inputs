@@ -58,6 +58,7 @@ body {
 	margin-left: 1.2vw;
 	margin-top: 0.6vw;
 	text-align: center;
+  white-space: pre-wrap;
 }
 
 #description {
@@ -67,7 +68,6 @@ body {
 
   font-weight: lighter;
 
-  white-space: pre-wrap;
 }
 
 #text_input {
