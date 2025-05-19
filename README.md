@@ -94,6 +94,8 @@ TriggerEvent("tpz_inputs:getSelectedOptionsInput", inputData, function(cb)
 			
 end)
 ```
-## Commands 
 
-`/toggleofftpinputs` to toggle off the inputs dialog in case it stuck.
+## Commands 
+| Command              | Description                                      |
+|----------------------|--------------------------------------------------|
+| `/toggleofftpinputs` | Toggle off the inputs dialog in case its bugged. |
