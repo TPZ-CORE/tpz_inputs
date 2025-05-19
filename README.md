@@ -98,4 +98,4 @@ end)
 ## Commands 
 | Command              | Description                                      |
 |----------------------|--------------------------------------------------|
-| `/toggleofftpinputs` | Toggle off the inputs dialog in case its bugged. |
+| `toggleofftpinputs` | Toggle off the inputs dialog in case its bugged. |
