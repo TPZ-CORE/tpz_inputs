@@ -4,27 +4,30 @@ local input
 --[[ Events ]]--
 -----------------------------------------------------------
 
+AddEventHandler("tpz_inputs:getSliderResult", function(data, cb)
+    GetInput(data, false, false, false, true, cb)
+end)
 AddEventHandler("tpz_inputs:getSelectedOptionsInput", function(data, cb)
-    GetInput(data, false, false, true, cb)
+    GetInput(data, false, false, true, false, cb)
 end)
 
 AddEventHandler("tpz_inputs:getButtonReturnedValuesInput", function(data, cb)
-    GetInput(data, false, true, false, cb)
+    GetInput(data, false, true, false, false, cb)
 end)
 
 AddEventHandler("tpz_inputs:getButtonInput", function(data, cb)
-    GetInput(data, false, false, false, cb)
+    GetInput(data, false, false, false, false, cb)
 end)
 
 AddEventHandler("tpz_inputs:getTextInput", function(data, cb)
-    GetInput(data, true, false, false, cb)
+    GetInput(data, true, false, false, false, cb)
 end)
 
 -----------------------------------------------------------
 --[[ Functions ]]--
 -----------------------------------------------------------
 
-function GetInput(data, hasTextInput, returnClickedValue, returnSelectedOptionValue, cb)
+function GetInput(data, hasTextInput, returnClickedValue, returnSelectedOptionValue, returnSliderValue, cb)
 
     ToggleUI(true)
 
@@ -33,7 +36,8 @@ function GetInput(data, hasTextInput, returnClickedValue, returnSelectedOptionVa
         inputData                 = data, 
         hasTextInput              = hasTextInput, 
         returnClickedValue        = returnClickedValue, 
-        returnSelectedOptionValue = returnSelectedOptionValue
+        returnSelectedOptionValue = returnSelectedOptionValue,
+        returnSliderValue         = returnSliderValue,
     })
 
     while not input do 
@@ -71,6 +75,5 @@ end)
 -----------------------------------------------------------
 
 RegisterCommand("toggleofftpinputs",function()
-    input = nil
     ToggleUI(false)
 end)
