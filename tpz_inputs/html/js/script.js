@@ -22,6 +22,7 @@ $(function() {
       CONTAINS_TEXT_INPUT_PARAMETER    = event.data.hasTextInput;
       CONTAINS_RETURNED_CLICKED_VALUES = event.data.returnClickedValue;
       CONTAINS_RETURNED_OPTION_VALUES  = event.data.returnSelectedOptionValue;
+      CONTAINS_RANGE_SELECTOR          = event.data.returnSliderValue;
 
       if (CONTAINS_TEXT_INPUT_PARAMETER) {
 
@@ -43,12 +44,37 @@ $(function() {
 
       }
 
+      if (CONTAINS_RANGE_SELECTOR){
+
+        $("#range-selector").attr("value", 1);
+
+        $("#range-selector").attr("min", data.min);
+        $("#range-selector").attr("max", data.max);
+
+        $("#range-selector").val(1);
+        $("#range-selector-value").text('1');
+
+        $("#range-selector").fadeIn();
+        $("#range-selector-value").fadeIn();
+      }
+
       $("#left-action-button").text(data.buttonparam1);
       $("#right-action-button").text(data.buttonparam2);
 
     } else if (event.data.action == "close") {
       CloseDialog();
     }
+
+    const slider = document.getElementById("range-selector");
+    const output = document.getElementById("range-selector-value");
+
+    // Show initial value
+    output.textContent = slider.value;
+
+    // Update value while dragging
+    slider.addEventListener("input", function () {
+      output.textContent = this.value;
+    });
 
   });
 
@@ -72,6 +98,10 @@ $(function() {
 
     }else{
       returnedText = $("#left-action-button").text();
+    }
+
+    if (CONTAINS_RANGE_SELECTOR){
+      returnedText = $("#range-selector").val();
     }
 
     $.post("http://tpz_inputs/sendbuttonclickedinput", JSON.stringify({
