@@ -95,6 +95,28 @@ TriggerEvent("tpz_inputs:getSelectedOptionsInput", inputData, function(cb)
 end)
 ```
 
+**How to use a slider?**
+
+When clicking ACCEPT button, it will return the selected option text value as a String.
+
+```lua
+local inputData = {
+    title = "Insert Quantity",
+	desc  = "how much quantity would you like to withdraw?",
+	buttonparam1 = "ACCEPT",
+	buttonparam2 = "DECLINE",
+	min          = 1, -- <- minimum quantity
+	max          = 20, -- <- maximum quantity
+}
+	
+TriggerEvent("tpz_inputs:getSliderResult", inputData, function(cb)
+	if cb ~= "DECLINE" then
+          -- do action (returns an integer)
+	end
+			
+end)
+```
+
 ## Commands 
 | Command              | Description                                      |
 |----------------------|--------------------------------------------------|
