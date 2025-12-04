@@ -149,6 +149,19 @@ select option{
   background-color: rgb(0, 0, 0);
 }
 
+#range-selector-description-cost {
+  position: absolute;
+  font-family: "crock", crock, serif;
+  width: 23vw;
+  height: 1vw;
+  color: gray;
+  font-size: 0.75vw;
+  text-align: center;
+  font-weight: lighter;
+  margin-top: 6vw;
+  margin-left: 1.2vw;
+}
+
 #range-selector {
   -webkit-appearance: none;
     appearance: none;
