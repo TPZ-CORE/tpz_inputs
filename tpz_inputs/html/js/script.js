@@ -74,6 +74,22 @@ $(function() {
     // Update value while dragging
     slider.addEventListener("input", function () {
       output.textContent = this.value;
+
+      if (CONTAINS_ADVANCED_RANGE_SELECTOR) {
+
+        const v = Number(this.value);
+        const desc = ADVANCED_RANGE_SELECTOR_DESC;
+        const cost = Number(ADVANCED_RANGE_SELECTOR_COST);
+        const currency = ADVANCED_RANGE_SELECTOR_CURRENCY;
+
+        const total = v * cost;
+        const formatted = total.toFixed(2);
+
+        $("#range-selector-description-cost").text(
+          `${desc}${formatted}${currency}`
+        );
+
+      }
     });
 
   });
@@ -127,3 +143,4 @@ $(function() {
   
 
 });
+
