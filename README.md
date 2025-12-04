@@ -148,8 +148,8 @@ end)
 | `toggleofftpinputs` | Toggle off the inputs dialog in case its bugged. |
 
 <img width="723" height="315" alt="220184657-850ef2ce-2ccf-470b-8302-507aaaf7387c" src="https://github.com/user-attachments/assets/60399c66-67ad-409b-bdc2-223c3e163ed3" />
-<img width="726" height="338" alt="515393339-4cd13f24-37a5-4f88-a649-ab4b93754037" src="https://github.com/user-attachments/assets/6a1f7805-d458-42c5-abcc-753bbd9484ad" />
-<img width="726" height="338" alt="515393339-4cd13f24-37a5-4f88-a649-ab4b93754037" src="https://github.com/user-attachments/assets/1e658f02-abe8-4c14-b2a8-76b97a6cf876" />
+![228959243-0ac69849-925a-4002-9a98-070d11865c42](https://github.com/user-attachments/assets/fe8c2d11-3e79-4ac4-b219-c06754f92f21)
 <img width="723" height="312" alt="220184654-76c6543e-054a-41ed-9eb0-adb5c3848549" src="https://github.com/user-attachments/assets/eb372125-1209-4793-b1cf-833395742bc5" />
+<img width="726" height="338" alt="515393339-4cd13f24-37a5-4f88-a649-ab4b93754037" src="https://github.com/user-attachments/assets/1e658f02-abe8-4c14-b2a8-76b97a6cf876" />
 <img width="714" height="341" alt="{6E8EA9BB-D7C4-4B26-987D-D767A51C02E5}" src="https://github.com/user-attachments/assets/201453e7-5420-461b-90ad-5b00fec63dd5" />
 
