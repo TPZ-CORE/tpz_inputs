@@ -68,7 +68,7 @@ $(function () {
           const currency = ADVANCED_RANGE_SELECTOR_CURRENCY;
 
           $("#range-selector-description-cost").text(
-            `${desc}${cost}${currency}`
+            `${desc}${cost.toFixed(2)}${currency}`
           );
 
           $("#range-selector-description-cost").fadeIn();
@@ -162,5 +162,6 @@ $(function () {
 
 
 });
+
 
 
