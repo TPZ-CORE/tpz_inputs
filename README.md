@@ -117,6 +117,31 @@ TriggerEvent("tpz_inputs:getSliderResult", inputData, function(cb)
 end)
 ```
 
+**How to use an advanced slider?**
+
+When clicking ACCEPT button, it will return the selected option text value as a String.
+
+```lua
+local inputData = {
+    title            = "Insert Quantity",
+	desc             = "how much quantity would you like to withdraw?",
+	buttonparam1     = "ACCEPT",
+	buttonparam2     = "DECLINE",
+	min              = 1, -- <- minimum quantity,
+	max              = 20, -- <- maximum quantity,
+    cost             = 0.10, -- <- item cost x1
+    cost_description = "you will pay: ",
+    cost_currency    = " dollars,
+}
+	
+TriggerEvent("tpz_inputs:getAdvancedSliderResult", inputData, function(cb)
+	if cb ~= "DECLINE" then
+          -- do action (returns an integer)
+	end
+			
+end)
+```
+
 ## Commands 
 | Command              | Description                                      |
 |----------------------|--------------------------------------------------|
