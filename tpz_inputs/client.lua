@@ -28,25 +28,39 @@ end)
 AddEventHandler("tpz_inputs:getTextInput", function(data, cb)
     GetInput(data, true, false, false, false, false, cb)
 end)
-
 AddEventHandler("tpz_inputs:voice_tasks", function(data, cb)
 
     -- PUSH TO TALK.
     Citizen.CreateThread(function()
     
-        while isActive do
-            Wait(0)
+        local IS_NUI_FOCUSED = false
+
+        while true do
+
+            if not isActive then
     
-            if not IS_NUI_FOCUSED then
-                SetNuiFocusKeepInput(true)
-                IS_NUI_FOCUSED = true
+                if IS_NUI_FOCUSED then
+                    SetNuiFocusKeepInput(false)
+                    IS_NUI_FOCUSED = false
+                end
+
+                break
             end
     
-            DisableAllControlActions(0)
-            EnableControlAction(0, `INPUT_PUSH_TO_TALK`, true)
+            if isActive then
     
+                if not IS_NUI_FOCUSED then
+                    SetNuiFocusKeepInput(true)
+                    IS_NUI_FOCUSED = true
+                end
+    
+                DisableAllControlActions(0)
+                EnableControlAction(0, `INPUT_PUSH_TO_TALK`, true)
+            end
+    
+            Wait(0)
         end
-    
+
     end)
 
 end)
@@ -120,3 +134,4 @@ RegisterCommand("toggleinput",function()
     input = nil
     SendNUIMessage({ action = 'close'})
 end)
+
