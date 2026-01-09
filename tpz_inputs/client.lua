@@ -1,4 +1,5 @@
-local input
+local input = nil
+local isActive = false
 
 -----------------------------------------------------------
 --[[ Events ]]--
@@ -28,6 +29,27 @@ AddEventHandler("tpz_inputs:getTextInput", function(data, cb)
     GetInput(data, true, false, false, false, false, cb)
 end)
 
+AddEventHandler("tpz_inputs:voice_tasks", function(data, cb)
+
+    -- PUSH TO TALK.
+    Citizen.CreateThread(function()
+    
+        while isActive do
+            Wait(0)
+    
+            if not IS_NUI_FOCUSED then
+                SetNuiFocusKeepInput(true)
+                IS_NUI_FOCUSED = true
+            end
+    
+            DisableAllControlActions(0)
+            EnableControlAction(0, `INPUT_PUSH_TO_TALK`, true)
+    
+        end
+    
+    end)
+
+end)
 
 -----------------------------------------------------------
 --[[ Functions ]]--
@@ -35,6 +57,18 @@ end)
 
 function GetInput(data, hasTextInput, returnClickedValue, returnSelectedOptionValue, returnSliderValue, returnAdvancedSliderValue, cb)
 
+    if input then 
+
+        SendNUIMessage({ action = 'close'})
+
+        while input do 
+            Wait(100)
+        end
+
+    end
+
+    isActive = true
+    TriggerEvent("tpz_inputs:voice_tasks")
     ToggleUI(true)
 
     SendNUIMessage({ 
@@ -46,22 +80,23 @@ function GetInput(data, hasTextInput, returnClickedValue, returnSelectedOptionVa
         returnSliderValue         = returnSliderValue,
         returnAdvancedSliderValue = returnAdvancedSliderValue,
     })
-
-    while not input do 
-        Citizen.Wait(50) 
-    end
     
-    Citizen.Wait(10)
+    while not input do 
+        Wait(10) 
+    end
 
-    cb(input)
-
-    input = nil
-    SendNUIMessage({ action = 'close'})
+    return cb(input)
 end 
 
 function ToggleUI(display)
     SetNuiFocus(display,display)
     SendNUIMessage({ action = 'toggle', toggle = display })
+
+    if display == false then 
+        input = nil 
+        isActive = false
+    end
+
 end
 
 -----------------------------------------------------------
@@ -70,7 +105,7 @@ end
 
 RegisterNUICallback('sendbuttonclickedinput', function(data)
     input = data.input
-    ToggleUI(false)
+    SendNUIMessage({ action = 'close'})
 end)
 
 RegisterNUICallback('closeNUI', function()
@@ -81,7 +116,7 @@ end)
 --[[ Commands ]]--
 -----------------------------------------------------------
 
-RegisterCommand("toggleofftpinputs",function()
+RegisterCommand("toggleinput",function()
     input = nil
-    ToggleUI(false)
+    SendNUIMessage({ action = 'close'})
 end)
