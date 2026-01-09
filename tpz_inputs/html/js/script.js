@@ -64,7 +64,7 @@ $(function () {
         if (CONTAINS_ADVANCED_RANGE_SELECTOR) {
 
           const desc = ADVANCED_RANGE_SELECTOR_DESC;
-          const cost = Number(ADVANCED_RANGE_SELECTOR_COST);
+          const cost = Number(ADVANCED_RANGE_SELECTOR_COST).toFixed(2);
           const currency = ADVANCED_RANGE_SELECTOR_CURRENCY;
 
           $("#range-selector-description-cost").text(
@@ -162,6 +162,7 @@ $(function () {
 
 
 });
+
 
 
 
